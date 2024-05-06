@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter Keywords</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const socket = io();
+
+            document.getElementById('sendButton').addEventListener('click', () => {
+                const keywords = {
+                    keyword1: document.getElementById('keyword1').value,
+                    keyword2: document.getElementById('keyword2').value,
+                    keyword3: document.getElementById('keyword3').value,
+                    keyword4: document.getElementById('keyword4').value
+                };
+                socket.emit('sendKeywords', keywords);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1 class="title">合成·花域</h1>
+    <h2 class="subtitle">创造属于您的的数字花园</h2>
+    <p class="description">Welcome to the server. Please enter keywords below.</p>
+    <div class="keywords-container">
+        <div class="keyword-group">
+            <div class="label-description">
+                <div class="label">心情/emotion</div>
+                <div class="description">来描述您此刻的心情</div>
+            </div>
+            <input type="text" id="keyword1" class="keyword-input" placeholder="keyword1">
+        </div>
+        <div class="keyword-group">
+            <div class="label-description">
+                <div class="label">色彩/color</div>
+                <div class="description">描述一下您喜爱的颜色吧</div>
+            </div>
+            <input type="text" id="keyword2" class="keyword-input" placeholder="keyword2">
+        </div>
+        <div class="keyword-group">
+            <div class="label-description">
+                <div class="label">时间/time</div>
+                <div class="description">描述您喜欢的季节或时间</div>
+            </div>
+            <input type="text" id="keyword3" class="keyword-input" placeholder="keyword3">
+        </div>
+        <div class="keyword-group">
+            <div class="label-description">
+                <div class="label">种类/species</div>
+                <div class="description">生成特定的喜欢的花</div>
+            </div>
+            <input type="text" id="keyword4" class="keyword-input" placeholder="keyword4">
+        </div>
+    </div>
+    <button id="sendButton">Send Keywords</button>
+</body>
+</html>

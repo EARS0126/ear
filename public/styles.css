@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+html, body {
+    height: 100%; /* 确保html和body充满整个屏幕高度 */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 水平居中内容 */
+    justify-content: center; /* 垂直居中内容 */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #000; /* 纯黑背景 */
+    color: white;
+    text-align: center;
+    background-image: linear-gradient(135deg, rgba(255,0,144,0.2) 0%, rgba(0,255,255,0.2) 100%);
+    animation: gradientBG 10s ease infinite;
+    background-size: cover; /* 确保背景图片充满整个屏幕 */
+    overflow: hidden; /* 防止任何溢出 */
+    width: 100vw;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.content-wrapper {
+    width: 100%; /* 使用整个视口宽度 */
+    max-width: 800px; /* 限制最大宽度，避免过宽 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px; /* 调整顶部间距 */
+}
+
+.title {
+    font-size: 96px;
+    color: #F60094;
+    margin: 10px 0;
+}
+
+.subtitle {
+    font-size: 28px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+}
+
+.keywords-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* 确保关键词框居中对齐 */
+    gap: 20px;
+    width: 100%;
+}
+
+.keyword-group {
+    flex: 1 1 180px; /* 控制最小宽度，并允许灵活的扩展 */
+    max-width: 220px; /* 设置最大宽度，避免框太宽 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.label-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label {
+    color: #F60094; /* 粉红色 */
+    font-size: 20px; /* 大一些 */
+    font-weight: bold; /* 加粗 */
+}
+
+.description {
+    color: rgba(255, 255, 255, 0.6); /* 淡一些的白色 */
+    font-size: 12px; /* 小一些 */
+}
+
+.keyword-input {
+    width: 100%; /* 输入框宽度调整 */
+    padding: 12px;
+    border: 2px solid #555;
+    border-radius: 30px;
+    background: none;
+    color: white;
+    margin-top: 10px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 20px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 50px; /* 按钮下移 */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+@media screen and (max-width: 768px) {
+    .keywords-container {
+        flex-direction: column; /* 在移动设备上垂直排列 */
+    }
+
+    .keyword-group {
+        width: 80%; /* 移动设备上关键词组宽度为80% */
+        margin: 10px auto; /* 自动居中 */
+    }
+
+    .title, .subtitle, .description, button {
+        font-size: 150%; /* 在手机端显著增大字体 */
+    }
+}
